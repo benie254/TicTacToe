@@ -13,7 +13,7 @@ function Square({ value, onSquareClick }) {
     );
 }
 
-export default function Board() {
+function Board() {
     // declare a state variable 'squares' 
     // that defaults to an array of 9 nulls 
     // corresponding to the existing 9 squares
@@ -99,4 +99,15 @@ function determineWinner(squares) {
         }
     }
     return null;
+}
+
+// make this the main function
+export default function Game() {
+    return (
+        <div className="game">
+            <div className="game-board">
+                <Board />
+            </div>
+        </div>
+    )
 }
