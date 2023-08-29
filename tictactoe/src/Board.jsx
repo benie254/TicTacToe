@@ -18,6 +18,8 @@ export default function Board() {
     // that defaults to an array of 9 nulls 
     // corresponding to the existing 9 squares
     const [squares, setSquares] = useState(Array(9).fill(null));
+    // add a new state
+    const [xIsNext, setXIsNext] = useState(true);
 
     // define a handleClick function
     // to update the squares array 
