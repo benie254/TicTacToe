@@ -13,7 +13,8 @@ function Square({ value, onSquareClick }) {
     );
 }
 
-function Board() {
+// allow the component to receive props
+function Board({ xIsNext, squares, onPlay }) {
     // declare a state variable 'squares' 
     // that defaults to an array of 9 nulls 
     // corresponding to the existing 9 squares
