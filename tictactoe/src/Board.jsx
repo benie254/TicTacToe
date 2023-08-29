@@ -15,13 +15,6 @@ function Square({ value, onSquareClick }) {
 
 // allow the component to receive props
 function Board({ xIsNext, squares, onPlay }) {
-    // declare a state variable 'squares' 
-    // that defaults to an array of 9 nulls 
-    // corresponding to the existing 9 squares
-    const [squares, setSquares] = useState(Array(9).fill(null));
-    // add a new state
-    const [xIsNext, setXIsNext] = useState(true);
-
     // define a handleClick function
     // to update the squares array 
     function handleClick(i) {
@@ -107,6 +100,8 @@ export default function Game() {
     // state to track which player is next
     const [xIsNext, setXIsNext] = useState(true);
     // state to track the history of moves
+    // defaults to an array of 9 nulls 
+    // corresponding to the existing 9 squares
     const [history, setHistory] = useState([Array(9).fill(null)]);
     // to render squares for the current move
     // first, read the last squares from the history
