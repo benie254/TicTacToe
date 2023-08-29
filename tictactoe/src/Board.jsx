@@ -93,10 +93,12 @@ export default function Game() {
     // will be called by the Board component 
     // to update the game
     function handlePlay(nextSquares) {
+        const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         // append the updated squares array as a new history entry
         // toggle xIsNext
         // the '...' spread syntax means 'enumerate all items in--'
-        setHistory([...history, nextSquares]);
+        setHistory(nextHistory);
+        setCurrentMove(nextHistory.length - 1);
         setXIsNext(!xIsNext);
     }
 
