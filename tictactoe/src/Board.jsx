@@ -77,8 +77,6 @@ function Board({ xIsNext, squares, onPlay }) {
 
 // make this the main function (top-level component)
 export default function Game() {
-    // state to track which player is next
-    const [xIsNext, setXIsNext] = useState(true);
     // state to track the history of moves
     // defaults to an array of 9 nulls 
     // corresponding to the existing 9 squares
@@ -86,25 +84,24 @@ export default function Game() {
     // define a state variable
     // to help keep track of the user's steps
     const [currentMove, setCurrentMove] = useState(0);
+    // reconfigure
+    // do not store xIsNext as a separate state variable
+    const xIsNext = currentMove % 2 === 0;
     // to render squares for the current move
     // first, read the last squares from the history
-    const currentSquares = history[history.length - 1];
+    const currentSquares = history[currentMove];
 
     // will be called by the Board component 
     // to update the game
     function handlePlay(nextSquares) {
-        const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
-        // append the updated squares array as a new history entry
-        // toggle xIsNext
         // the '...' spread syntax means 'enumerate all items in--'
+        const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         setHistory(nextHistory);
         setCurrentMove(nextHistory.length - 1);
-        setXIsNext(!xIsNext);
     }
 
     function jumpTo(nextMove){
         setCurrentMove(nextMove);
-        setXIsNext(nextMove % 2 === 0);
     }
 
     // transform moves from history into React elements 
