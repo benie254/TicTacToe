@@ -111,7 +111,10 @@ export default function Game() {
     // will be called by the Board component 
     // to update the game
     function handlePlay(nextSquares) {
-
+        // append the updated squares array as a new history entry
+        // toggle xIsNext
+        setHistory([...history, nextSquares]);
+        setXIsNext(!xIsNext);
     }
     return (
         <div className="game">
