@@ -111,7 +111,8 @@ export default function Game() {
                 description = `Start over`;
             }
             return (
-                <li>
+                // add a key
+                <li key={move}>
                     <button
                         onClick={() => jumpTo(move)}
                     >
