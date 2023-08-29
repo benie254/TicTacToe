@@ -34,8 +34,9 @@ function Board({ xIsNext, squares, onPlay }) {
             nextSquares[i] = "O";
         }
 
-        setSquares(nextSquares);
-        setXIsNext(!xIsNext);
+        // to enable the Game component to update the Board 
+        // when the user clicks a square
+        onPlay(nextSquares);
     }
 
     // to display the winner
