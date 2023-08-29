@@ -83,6 +83,9 @@ export default function Game() {
     // defaults to an array of 9 nulls 
     // corresponding to the existing 9 squares
     const [history, setHistory] = useState([Array(9).fill(null)]);
+    // define a state variable
+    // to help keep track of the user's steps
+    const [currentMove, setCurrentMove] = useState(0);
     // to render squares for the current move
     // first, read the last squares from the history
     const currentSquares = history[history.length - 1];
