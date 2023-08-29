@@ -23,7 +23,7 @@ export default function Board() {
     // to update the squares array 
     function handleClick() {
         const nextSquares = squares.slice();
-        nextSquares[0] = "X";
+        nextSquares[i] = "X";
         setSquares(nextSquares);
     }
 
