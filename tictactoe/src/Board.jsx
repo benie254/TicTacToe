@@ -27,22 +27,36 @@ export default function Board() {
         // check if the square has an X or an O
         // if so, return the function early
         // also perform a check for the winner
-        if (squares[i] || determineWinner(squares)) {
+        if (determineWinner(squares) || squares[i]) {
             return;
         }
+
         const nextSquares = squares.slice();
+        
         // update -- to flip the next value 
         if (xIsNext) {
             nextSquares[i] = "X";
         } else {
             nextSquares[i] = "O";
         }
+
         setSquares(nextSquares);
         setXIsNext(!xIsNext);
     }
 
+    // to display the winner
+    const winner = determineWinner(squares);
+    let status;
+    if (winner) {
+        status = `Winner: ${winner}`;
+    } else {
+        status = `Next player: ${xIsNext? 'X' : 'O'}`;
+    }
+
     return (
         <>  
+            {/* to display the winnner */}
+            <div className="status">{status}</div>
             {/* pass the value prop down to each Square rendered */}
             <div className="board-row">
                 {/* - pass a click event to prop of the first square
@@ -80,7 +94,7 @@ function determineWinner(squares) {
     ];
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
-        if (squares[a] && squares[a] === squares[b] === squares[c]) {
+        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
             return squares[a];
         }
     }
