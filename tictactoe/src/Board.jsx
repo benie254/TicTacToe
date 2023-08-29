@@ -21,7 +21,7 @@ export default function Board() {
 
     // define a handleClick function
     // to update the squares array 
-    function handleClick() {
+    function handleClick(i) {
         const nextSquares = squares.slice();
         nextSquares[i] = "X";
         setSquares(nextSquares);
