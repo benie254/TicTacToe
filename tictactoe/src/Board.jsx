@@ -1,10 +1,12 @@
 import { useState } from "react";
 
 // pass the value prop from the Board component
-function Square({value}) {
+// pass down a click event prop
+function Square({ value, onSquareClick }) {
     return (
         <button 
             className="square"
+            onClick={onSquareClick}
         >
             {value}
         </button>
