@@ -25,8 +25,14 @@ export default function Board() {
     // to update the squares array 
     function handleClick(i) {
         const nextSquares = squares.slice();
-        nextSquares[i] = "X";
+        // update -- to flip the next value 
+        if (xIsNext) {
+            nextSquares[i] = "X";
+        } else {
+            nextSquares[i] = "O";
+        }
         setSquares(nextSquares);
+        setXIsNext(!xIsNext);
     }
 
     return (
