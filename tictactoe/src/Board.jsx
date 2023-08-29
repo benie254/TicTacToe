@@ -24,6 +24,11 @@ export default function Board() {
     // define a handleClick function
     // to update the squares array 
     function handleClick(i) {
+        // check if the square has an X or an O
+        // if so, return the function early
+        if (squares[i]) {
+            return;
+        }
         const nextSquares = squares.slice();
         // update -- to flip the next value 
         if (xIsNext) {
