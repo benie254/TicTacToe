@@ -111,6 +111,11 @@ export default function Game() {
     // first, read the last squares from the history
     const currentSquares = history[history.length - 1];
 
+    // will be called by the Board component 
+    // to update the game
+    function handlePlay(nextSquares) {
+
+    }
     return (
         <div className="game">
             <div className="game-board">
