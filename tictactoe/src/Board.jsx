@@ -1,14 +1,10 @@
 import { useState } from "react";
 
-function Square() {
-    
-    function handleClick() {
-        setValue('X');
-    }
+// pass the value prop from the Board component
+function Square({value}) {
     return (
         <button 
             className="square"
-            onClick={handleClick}
         >
             {value}
         </button>
