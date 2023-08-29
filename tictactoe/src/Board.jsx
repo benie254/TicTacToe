@@ -26,7 +26,8 @@ export default function Board() {
     function handleClick(i) {
         // check if the square has an X or an O
         // if so, return the function early
-        if (squares[i]) {
+        // also perform a check for the winner
+        if (squares[i] || determineWinner(squares)) {
             return;
         }
         const nextSquares = squares.slice();
