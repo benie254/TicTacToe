@@ -101,8 +101,16 @@ function determineWinner(squares) {
     return null;
 }
 
-// make this the main function
+// make this the main function (top-level component)
 export default function Game() {
+    // state to track which player is next
+    const [xIsNext, setXIsNext] = useState(true);
+    // state to track the history of moves
+    const [history, setHistory] = useState([Array(9).fill(null)]);
+    // to render squares for the current move
+    // first, read the last squares from the history
+    const currentSquares = history[history.length - 1];
+
     return (
         <div className="game">
             <div className="game-board">
