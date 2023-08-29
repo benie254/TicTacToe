@@ -19,6 +19,14 @@ export default function Board() {
     // corresponding to the existing 9 squares
     const [squares, setSquares] = useState(Array(9).fill(null));
 
+    // define a handleClick function
+    // to update the squares array 
+    function handleClick() {
+        const nextSquares = squares.slice();
+        nextSquares[0] = "X";
+        setSquares(nextSquares);
+    }
+
     return (
         <>  
             {/* pass the value prop down to each Square rendered */}
