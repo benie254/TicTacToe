@@ -96,14 +96,43 @@ export default function Game() {
         setHistory([...history, nextSquares]);
         setXIsNext(!xIsNext);
     }
+
+    function jumpTo(nextMove){
+
+    }
+
+    // transform moves from history into React elements 
+    const moves = history.map(
+        (squares, move) => {
+            let description;
+            if (move > 0) {
+                description = `Go to move #${move}`;
+            } else {
+                description = `Start over`;
+            }
+            return (
+                <li>
+                    <button
+                        onClick={() => jumpTo(move)}
+                    >
+                        {description}
+                    </button>
+                </li>
+            );
+        }
+    );
     return (
         <div className="game">
             <div className="game-board">
                 {/* pass props to the Board component */}
                 <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
             </div>
+            {/* enable users to jump to moves or start over */}
+            <div className="game-info">
+                <ol>{moves}</ol>
+            </div>
         </div>
-    )
+    );
 }
 
 // to determine the winner
