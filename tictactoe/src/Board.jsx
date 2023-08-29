@@ -23,7 +23,8 @@ export default function Board() {
         <>  
             {/* pass the value prop down to each Square rendered */}
             <div className="board-row">
-                <Square value={squares[0]} />
+                {/* pass a click event to prop of the first square */}
+                <Square value={squares[0]} onSquareClick={handleClick} />
                 <Square value={squares[1]} />
                 <Square value={squares[2]} />
             </div>
