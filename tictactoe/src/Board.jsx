@@ -119,7 +119,8 @@ export default function Game() {
     return (
         <div className="game">
             <div className="game-board">
-                <Board />
+                {/* pass props to the Board component */}
+                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
             </div>
         </div>
     )
