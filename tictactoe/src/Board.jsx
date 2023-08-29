@@ -101,7 +101,8 @@ export default function Game() {
     }
 
     function jumpTo(nextMove){
-
+        setCurrentMove(nextMove);
+        setXIsNext(nextMove % 2 === 0);
     }
 
     // transform moves from history into React elements 
